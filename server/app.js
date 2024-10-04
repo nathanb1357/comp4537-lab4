@@ -14,11 +14,11 @@ class DictionaryAPI {
             'banana': 'A long curved fruit which grows in clusters and has soft pulpy flesh and yellow skin when ripe.',
             'sport': 'An activity involving physical exertion and skill in which an individual or team competes against another.'
         }
-        this.requestsServed = 0;
+        this.requestCount = 0;
     }
 
     incrementRequestCount() {
-        this.requestsServed++;
+        this.requestCount++;
     }
 
     getDefinition(res, word) {
@@ -47,7 +47,7 @@ class DictionaryAPI {
                 this.sendResponse(res, 404, { requestCount: this.requestCount, message: `ERROR: Word '${word}' already exists!` });
             } else {
                 this.dictionary[word] = definition;
-                let totalEntries = Object.keys(myObj).length;
+                let totalEntries = Object.keys(this.dictionary).length;
                 this.sendResponse(res, 201, { requestCount: this.requestCount, dictionarySize: totalEntries, message: `New entry recorded: '${word}: ${definition}'` });
             }
         });
@@ -65,15 +65,16 @@ class DictionaryAPI {
 
         const parsedUrl = url.parse(req.url, true);
         const path = parsedUrl.pathname;
-        const method = parsedUrl.method;
-
+        const method = req.method;
+        
+        console.log(method);
         if (method === "GET") {
             const word = parsedUrl.query.word;
             this.getDefinition(res, word);
         } else if (method === "POST") {
             this.postDefenition(req, res);
         } else {
-            this.sendResponse(res, 405, { requestCount: this.requestCount, error: 'Method not allowed!'});
+            this.sendResponse(res, 405, { requestCount: this.requestCount, message: 'Method not allowed!'});
         }
     }
 }
