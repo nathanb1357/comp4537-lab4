@@ -9,7 +9,11 @@ const HOST = '0.0.0.0'; // IP of listener host
 
 class DictionaryAPI {
     constructor() {
-        this.dictionary = {};
+        this.dictionary = {
+            'book': 'A literary composition that is published or intended for publication.',
+            'banana': 'A long curved fruit which grows in clusters and has soft pulpy flesh and yellow skin when ripe.',
+            'sport': 'An activity involving physical exertion and skill in which an individual or team competes against another.'
+        }
         this.requestsServed = 0;
     }
 
@@ -76,7 +80,7 @@ class DictionaryAPI {
 
 
 const dictionaryApi = new DictionaryAPI();
-server = http.createServer((req, res) => {
+http.createServer((req, res) => {
     dictionaryApi.handleRequest(req, res);
 }).listen(PORT, HOST, () => {
     console.log(`Server running on https://${HOST}:${PORT}`);
