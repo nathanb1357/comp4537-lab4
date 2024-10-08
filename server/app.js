@@ -64,7 +64,6 @@ class DictionaryAPI {
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
 
         const parsedUrl = url.parse(req.url, true);
-        const path = parsedUrl.pathname;
         const method = req.method;
         
         console.log(method);
