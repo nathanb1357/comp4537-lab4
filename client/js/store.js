@@ -1,3 +1,7 @@
+document.getElementById('button').innerHTML = MESSAGES.submit;
+document.getElementById('title').innerHTML = MESSAGES.store;
+
+
 document.getElementById('button').onclick = function() {
     let word = document.getElementById('word').value;
     let definition = document.getElementById('definition').value;
@@ -16,6 +20,6 @@ document.getElementById('button').onclick = function() {
 
     let data = {word: word, definition: definition};
 
-    XMLHttpRequestObject.open('POST', "http://localhost:3000", true);
+    XMLHttpRequestObject.open('POST', "https://nbartyuk.site", true);
     XMLHttpRequestObject.send(JSON.stringify(data));
 }
