@@ -4,7 +4,7 @@ const url = require('url');
 const DOMAINS = '*'; // domains with CORS access
 const REGEX = /^[a-zA-Z\s-]+$/;
 const PORT = 3000;
-const HOST = '0.0.0.0'; // IP of listener host
+const HOST = '64.23.149.51'; // IP of listener host
 
 
 class DictionaryAPI {
