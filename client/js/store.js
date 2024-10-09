@@ -9,7 +9,7 @@ class Store {
             let word = document.getElementById('word').value;
             let definition = document.getElementById('definition').value;
 
-            XMLHttpRequestObject = new XMLHttpRequest();
+            let XMLHttpRequestObject = new XMLHttpRequest();
             XMLHttpRequestObject.onreadystatechange = function () {
                 if (XMLHttpRequestObject.status == 404 || XMLHttpRequestObject.status == 400) {
                     data = JSON.parse(XMLHttpRequestObject.responseText);
