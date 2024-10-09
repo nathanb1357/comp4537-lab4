@@ -5,7 +5,7 @@ document.getElementById('title').innerHTML = MESSAGES.search;
 class Search {
     constructor() {
         document.getElementById('button').onclick = function () {
-            XMLHttpRequestObject = new XMLHttpRequest();
+            let XMLHttpRequestObject = new XMLHttpRequest();
             XMLHttpRequestObject.onreadystatechange = function () {
                 if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
                     let data = JSON.parse(XMLHttpRequestObject.responseText);
@@ -36,3 +36,5 @@ class Search {
         }
     }
 }
+
+new Search();
