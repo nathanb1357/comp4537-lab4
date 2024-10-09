@@ -1,10 +1,10 @@
 const http = require('http');
 const url = require('url');
 
-const DOMAINS = '*'; // domains with CORS access
-const REGEX = /^[a-zA-Z\s-]+$/;
-const PORT = 3000;
-const HOST = '64.23.149.51'; // IP of listener host
+const DOMAINS = 'https://comp4537lab4.vercel.app/'; // domains with CORS access
+const REGEX = /^[a-zA-Z\s-]+$/;                     // Regex for words and definitions
+const PORT = 3000;                                  // Port of communication
+const HOST = 'localhost';                           // IP of host
 
 
 class DictionaryAPI {

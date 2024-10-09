@@ -6,8 +6,8 @@ document.getElementById('title').innerHTML = MESSAGES.store;
 class Store {
     constructor() {
         document.getElementById('button').onclick = function () {
-            let word = document.getElementById('word').value;
-            let definition = document.getElementById('definition').value;
+            const word = document.getElementById('word').value;
+            const definition = document.getElementById('definition').value;
 
             let XMLHttpRequestObject = new XMLHttpRequest();
             XMLHttpRequestObject.onreadystatechange = function () {
@@ -21,7 +21,7 @@ class Store {
                 }
             }
 
-            let data = { word: word, definition: definition };
+            const data = { word: word, definition: definition };
 
             XMLHttpRequestObject.open('POST', "https://nbartyuk.site", true);
             XMLHttpRequestObject.send(JSON.stringify(data));

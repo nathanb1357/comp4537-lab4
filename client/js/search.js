@@ -8,7 +8,7 @@ class Search {
             let XMLHttpRequestObject = new XMLHttpRequest();
             XMLHttpRequestObject.onreadystatechange = function () {
                 if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 200) {
-                    let data = JSON.parse(XMLHttpRequestObject.responseText);
+                    const data = JSON.parse(XMLHttpRequestObject.responseText);
 
                     // format search result into text
                     let searchResult = MESSAGES.searchResultSuccess.replace('{count}', data.requestCount);
@@ -19,8 +19,7 @@ class Search {
                 }
 
                 if (XMLHttpRequestObject.readyState == 4 && XMLHttpRequestObject.status == 404) {
-                    let data = JSON.parse(XMLHttpRequestObject.responseText);
-
+                    const data = JSON.parse(XMLHttpRequestObject.responseText);
                     document.getElementById('content').innerHTML = data["message"];
                 }
             }
@@ -29,7 +28,7 @@ class Search {
             if (document.getElementById('search').value.match(/[^a-zA-Z]/)) {
                 document.getElementById('content').innerHTML = MESSAGES.regexError;
             } else {
-                let word = document.getElementById('search').value;
+                const word = document.getElementById('search').value;
                 XMLHttpRequestObject.open('GET', "https://nbartyuk.site/?word=" + word, true);
                 XMLHttpRequestObject.send();
             }
