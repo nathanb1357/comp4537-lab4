@@ -4,7 +4,7 @@ const url = require('url');
 const DOMAINS = '*'; // domains with CORS access
 const REGEX = /^[a-zA-Z\s-]+$/;
 const PORT = 3000;
-const HOST = '0.0.0.0'; // IP of listener host
+const HOST = '64.23.149.51'; // IP of listener host
 
 
 class DictionaryAPI {
@@ -64,7 +64,6 @@ class DictionaryAPI {
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
 
         const parsedUrl = url.parse(req.url, true);
-        const path = parsedUrl.pathname;
         const method = req.method;
         
         console.log(method);
