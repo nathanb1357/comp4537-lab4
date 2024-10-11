@@ -62,6 +62,7 @@ class DictionaryAPI {
         this.incrementRequestCount();
         res.setHeader('Access-Control-Allow-Origin', DOMAINS);
         res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+        res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
         const parsedUrl = url.parse(req.url, true);
         const method = req.method;
